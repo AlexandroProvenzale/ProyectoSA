@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-microservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-microservice
+  template:
+    metadata:
+      labels:
+        app: users-microservice
+    spec:
+      containers:
+      - name: users-microservice
+        image: provenzale/users-ms:latest
+        ports:
+        - containerPort: 3001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-microservice-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: users-microservice
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3001
