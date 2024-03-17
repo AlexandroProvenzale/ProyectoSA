@@ -19,7 +19,7 @@ function TicketDetailPage() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/tickets/${ticketNumber}`)
+    axios.get(`http://abafbb93076ba42cbade067299603722-687425056.us-east-2.elb.amazonaws.com:3000/api/tickets/${ticketNumber}`)
       .then(response => {
         setTicket(response.data.ticket);
         setSelectedAgent(response.data.ticket.assignedAgent);
@@ -28,7 +28,7 @@ function TicketDetailPage() {
         console.error('Error fetching ticket:', error);
       });
 
-    axios.get('http://localhost:3001/api/users/agents')
+    axios.get('http://ad3382c0a8f64460398b69830bb93ee4-1263499786.us-east-2.elb.amazonaws.com:3001/api/users/agents')
       .then(response => {
         setAgents(response.data.users);
       })
@@ -53,7 +53,7 @@ function TicketDetailPage() {
   };
 
   const handleUpdateTicket = () => {
-    axios.put(`http://localhost:3000/api/tickets/${ticketNumber}/${selectedAgent}`, ticket)
+    axios.put(`http://abafbb93076ba42cbade067299603722-687425056.us-east-2.elb.amazonaws.com:3000/api/tickets/${ticketNumber}/${selectedAgent}`, ticket)
       .then(response => {
         console.log('Ticket updated successfully:', response.data);
         // Aquí podrías mostrar un mensaje de éxito o realizar otras acciones después de la actualización

@@ -28,10 +28,8 @@ class Server {
 
     middlewares() {
 
-        const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['*'];
-
         // CORS
-        this.app.use( cors({ origin: allowedOrigins }) );
+        this.app.use( cors({ origin: '*' }) );
 
         // Lectura y parseo del body
         this.app.use( express.json() );

@@ -8,7 +8,7 @@ function TicketListPage() {
     useEffect(() => {
         const fetchTickets = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/tickets');
+            const response = await axios.get('http://abafbb93076ba42cbade067299603722-687425056.us-east-2.elb.amazonaws.com:3000/api/tickets');
             setTickets(response.data.tickets);
         } catch (error) {
             console.error('Error fetching tickets:', error);

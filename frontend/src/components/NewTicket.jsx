@@ -14,7 +14,7 @@ const NewTicket = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/tickets', {
+      const response = await axios.post('http://abafbb93076ba42cbade067299603722-687425056.us-east-2.elb.amazonaws.com:3000/api/tickets', {
         name,
         email,
         phone,

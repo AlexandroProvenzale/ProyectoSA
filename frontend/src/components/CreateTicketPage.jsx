@@ -22,7 +22,7 @@ function CreateTicketPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/api/tickets', formData)
+    axios.post('http://abafbb93076ba42cbade067299603722-687425056.us-east-2.elb.amazonaws.com:3000/api/tickets', formData)
       .then(response => {
         console.log('Ticket creado exitosamente:', response.data);
         setSuccessMessage('¡El ticket se ha creado con éxito!');
